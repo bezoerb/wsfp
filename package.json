@@ -1,0 +1,40 @@
+{
+  "name": "wsfp",
+  "version": "0.0.0",
+  "description": "Set ACL folder permissions for webserver",
+  "license": "MIT",
+  "repository": "bezoerb/wsfp",
+  "author": {
+    "name": "Ben Zörb",
+    "email": "ben@sommerlaune.com",
+    "url": "sommerlaune.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "test": "jshint . && mocha test.js"
+  },
+  "files": [
+    "index.js",
+    "cli.js"
+  ],
+  "bin": {
+    "wsfp": "cli.js"
+  },
+  "keywords": [
+    "acl","permissions"
+  ],
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "indent-string": "^1.2.1",
+    "meow": "^3.1.0",
+    "update-notifier": "^0.3.2"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "jshint": "^2.7.0",
+    "mocha": "^2.2.4"
+  }
+}
