@@ -24,6 +24,7 @@ wsfp('path/to/cache',function(err){
 
 ```shell
 ~$ wsfp app/cache
+```
 
 ## API
 
