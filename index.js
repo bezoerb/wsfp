@@ -47,7 +47,6 @@ module.exports = function (paths, cb) {
 			}
 
 			cb(new Error('Your system doesn\'t support ACL'));
-
 		});
 	});
 };
