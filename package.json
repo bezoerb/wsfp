@@ -1,6 +1,6 @@
 {
   "name": "wsfp",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Set ACL folder permissions for webserver",
   "license": "MIT",
   "repository": "bezoerb/wsfp",
@@ -24,7 +24,8 @@
     "wsfp": "cli.js"
   },
   "keywords": [
-    "acl","permissions"
+    "acl",
+    "permissions"
   ],
   "dependencies": {
     "chalk": "^1.0.0",
