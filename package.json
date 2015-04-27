@@ -14,7 +14,7 @@
   },
   "preferGlobal": true,
   "scripts": {
-    "test": "jshint . && mocha test.js"
+    "test": "jshint ."
   },
   "files": [
     "index.js",
