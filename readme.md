@@ -1,6 +1,6 @@
 # wsfp [![Build Status](https://travis-ci.org/bezoerb/wsfp.svg?branch=master)](https://travis-ci.org/bezoerb/wsfp)
 
-> Set files & folder ACL permissions for webserver user. Based on symfony installation [guide](http://symfony.com/doc/current/book/installation.html#book-installation-permissions) 
+> Set files & folder ACL permissions for webserver user. Based on symfony [installation guide](http://symfony.com/doc/current/book/installation.html#book-installation-permissions) 
 
 
 ## Install
