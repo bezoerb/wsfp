@@ -1,7 +1,6 @@
 'use strict';
 var exec = require('child_process').exec;
 var chalk = require('chalk');
-var os = require('os');
 
 module.exports = function (paths, cb) {
 	if (typeof paths === 'string') {

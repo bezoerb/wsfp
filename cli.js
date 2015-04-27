@@ -47,5 +47,5 @@ function run() {
 if (cli.input[0]) {
 	run();
 } else {
-	error(new Error('Input missing'))
+	error(new Error('Input missing'));
 }
