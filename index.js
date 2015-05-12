@@ -21,10 +21,14 @@ module.exports = function (paths, cb) {
 		try {
 			var stat = fs.statSync(p);
 		} catch (err) {
-			paths.splice(index,1);
-			console.log(chalk.bold.red('Warning: ') + err.message);
+
+			cb(new Error(chalk.bold.red('Warning: ') + err.message.replace(/,\s*stat\s*(.*$)/,': $1')));
 		}
 	});
+
+	if (!paths.length) {
+		cb(new Error('Missing valid input'));
+	}
 
 	var acl = {
 		// Use ACL on a system that does support chmod +a
