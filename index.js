@@ -1,5 +1,6 @@
 'use strict';
 var exec = require('child_process').exec;
+var fs = require('fs');
 var chalk = require('chalk');
 
 module.exports = function (paths, cb) {
@@ -14,6 +15,16 @@ module.exports = function (paths, cb) {
 	if (process.platform === 'win32') {
 		cb(new Error('ACL is not supported on Windows'));
 	}
+
+	// filter non existing paths
+	paths.forEach(function(p, index){
+		try {
+			var stat = fs.statSync(p);
+		} catch (err) {
+			paths.splice(index,1);
+			console.log(chalk.bold.red('Warning: ') + err.message);
+		}
+	});
 
 	var acl = {
 		// Use ACL on a system that does support chmod +a
@@ -30,6 +41,8 @@ module.exports = function (paths, cb) {
 			'setfacl -dR -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX ' + paths.join(' ')
 		]
 	};
+
+
 
 	exec(acl.chmod.join(';'), [], function (err, stdout, stderr) {
 		if (!err) {
