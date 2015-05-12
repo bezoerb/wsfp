@@ -19,7 +19,7 @@ module.exports = function (paths, cb) {
 	// filter non existing paths
 	paths.forEach(function(p, index){
 		try {
-			var stat = fs.statSync(p);
+			fs.statSync(p);
 		} catch (err) {
 
 			cb(new Error(chalk.bold.red('Warning: ') + err.message.replace(/,\s*stat\s*(.*$)/,': $1')));
