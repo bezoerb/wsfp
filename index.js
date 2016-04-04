@@ -33,14 +33,14 @@ module.exports = function (paths, cb) {
 	var acl = {
 		// Use ACL on a system that does support chmod +a
 		chmod: [
-			'HTTPDUSER=`ps aux | grep -E \'[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx\' | grep -v root | head -1 | cut -d\\  -f1`',
-			'chmod +a "$HTTPDUSER allow delete,write,append,file_inherit,directory_inherit" ' + paths.join(' '),
-			'chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" ' + paths.join(' ')
+			'HTTPDUSER=`ps axo user,comm | grep -E \'[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx\' | grep -v root | head -1 | cut -d\\  -f1`',
+			'chmod -R +a "$HTTPDUSER allow delete,write,append,file_inherit,directory_inherit" ' + paths.join(' '),
+			'chmod -R +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" ' + paths.join(' ')
 		],
 
 		// Use ACL on a system that does not support chmod +a
 		setfacl: [
-			'HTTPDUSER=`ps aux | grep -E \'[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx\' | grep -v root | head -1 | cut -d\\  -f1`',
+			'HTTPDUSER=`ps axo user,comm | grep -E \'[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx\' | grep -v root | head -1 | cut -d\\  -f1`',
 			'setfacl -R -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX ' + paths.join(' '),
 			'setfacl -dR -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX ' + paths.join(' ')
 		]
