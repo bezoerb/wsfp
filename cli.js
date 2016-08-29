@@ -23,9 +23,9 @@ if (cli.flags['update-notifier'] !== false) {
 }
 
 function error(err) {
-	process.stderr.write(indentString(chalk.red(err.message || err), '   '));
+	process.stderr.write(indentString(chalk.red(err.message || err), 4));
 	process.stderr.write(os.EOL+os.EOL);
-	process.stderr.write(indentString(help, '   '));
+	process.stderr.write(indentString(help, 4));
 	process.exit(1);
 }
 
