@@ -28,7 +28,7 @@
     "permissions"
   ],
   "dependencies": {
-    "chalk": "^1.0.0",
+    "chalk": "^2.0.0",
     "indent-string": "^3.0.0",
     "meow": "^6.0.0",
     "update-notifier": "^2.0.0"
